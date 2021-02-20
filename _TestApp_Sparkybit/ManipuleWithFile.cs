@@ -19,15 +19,25 @@ namespace _TestApp_Sparkybit
             Console.WriteLine("Load data from file...\n");
             string line;
 
-            using (StreamReader sr = new StreamReader("source.txt"))
+            try
             {
-                while ((line = sr.ReadLine()) != null)
+                using (StreamReader sr = new StreamReader("source.txt"))
                 {
-                    Console.WriteLine(line);
-                    listFile.Add(line);
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        Console.WriteLine(line);
+                        listFile.Add(line);
+                    }
                 }
+                Console.WriteLine("File is load!\n");
             }
-            Console.WriteLine("File is load!\n");
+            catch (Exception e)
+            {
+                Console.WriteLine("File not found: " + e.Message);
+                Console.WriteLine("\nClose app.");
+                Console.ReadLine();
+                Environment.Exit(0);
+            }
         }
 
         public void EditFile()
