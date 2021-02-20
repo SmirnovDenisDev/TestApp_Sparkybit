@@ -21,7 +21,7 @@ namespace _TestApp_Sparkybit
 
             try
             {
-                using (StreamReader sr = new StreamReader("source.txt"))
+                using (StreamReader sr = new StreamReader("../../../source.txt"))
                 {
                     while ((line = sr.ReadLine()) != null)
                     {
